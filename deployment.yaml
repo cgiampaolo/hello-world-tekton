@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: hello-world-tekton
+  namespace: tkt-run
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-tekton
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      namespace: bpl
+      labels:
+        app: hello-world-tekton
+    spec:
+      containers:
+        - name: hello-world-tekton
+          image: clogiampaolo/hello-world-tekton
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the cluster
