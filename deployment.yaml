@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: hello-world-tekton
-          image: clogiampaolo/hello-world-tekton
+          image: docker.io/clogiampaolo/hello-world-tekton
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
